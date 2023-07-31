@@ -3,7 +3,6 @@
 module Smashing
   class SmashingDownloader # rubocop:disable Style/Documentation
     URL      = 'https://www.smashingmagazine.com'
-    ROOT_DIR = '/Users/admin/Documents/works/smashing-wallpaper-downloader/'
 
     def initialize(params)
       @month      = params[:month]
@@ -20,7 +19,7 @@ module Smashing
     attr_reader :month, :resolution, :date
 
     def download_wallpapers
-      dir = "#{ROOT_DIR}#{date.strftime('%B')} #{date.year}/"
+      dir = "#{date.strftime('%B')} #{date.year}/"
       FileUtils.mkdir_p(dir) unless File.directory?(dir)
 
       wallpaper_links.each do |url|
